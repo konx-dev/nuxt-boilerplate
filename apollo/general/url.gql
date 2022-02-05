@@ -1,0 +1,6 @@
+query Url($url: [String], $siteId: [QueryArgument]) {
+    entry(uri: $url, siteId: $siteId) {
+        typeId,
+        typeHandle
+    }
+}

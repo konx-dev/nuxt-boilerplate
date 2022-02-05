@@ -1,0 +1,10 @@
+query Entry($siteId: [QueryArgument]) {
+  entries(section: "news", siteId: $siteId) {
+    ... on news_news_Entry {
+      id
+      uri
+      title
+      headingPlain
+    }
+  }
+}

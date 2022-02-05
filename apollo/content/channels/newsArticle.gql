@@ -1,0 +1,10 @@
+query Entry($slug: [String!], $siteId: [QueryArgument]) {
+    entry(slug: $slug, section: "news", siteId: $siteId) {
+        id
+        title
+        slug
+        ...on news_news_Entry {
+            headingPlain
+        }
+    }
+}

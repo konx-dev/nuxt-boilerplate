@@ -1,0 +1,10 @@
+query Entry($siteId: [QueryArgument]) {
+  entry(section: "contact", siteId: $siteId) {
+    id
+    ... on contact_contact_Entry {
+      id
+      title
+      headingPlain
+    }
+  }
+}

@@ -1,0 +1,10 @@
+query Entry($uri: [String], $siteId: [QueryArgument]) {
+    entry (uri: $uri, siteId: $siteId) {
+        id
+        slug
+        title
+        ... on pages_pages_Entry {
+            headingPlain
+        }
+    }
+}

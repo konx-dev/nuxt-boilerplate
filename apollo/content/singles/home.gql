@@ -1,0 +1,10 @@
+query Entry($siteId: [QueryArgument]) {
+  entry(section: "home", siteId: $siteId) {
+    id
+    ... on home_home_Entry {
+      id
+      title
+      headingPlain
+    }
+  }
+}
