@@ -1,6 +1,7 @@
 <template>
     <div>
-        {{ entry.headingPlain }}
+        <div>{{ entry.headingPlain }}</div>
+        <div v-for="(item, i) in navigation" :key="i">{{ item.title }}</div>
     </div>
 </template>
 
@@ -13,6 +14,11 @@ export default {
     data() {
         return {
             entry: null
+        }
+    },
+    computed: {
+        navigation() {
+            return this.$store.state.general.navigation
         }
     },
     apollo: {

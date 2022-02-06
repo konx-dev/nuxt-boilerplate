@@ -1,0 +1,6 @@
+query Categories($group: [String!]) {
+    categories(group: $group) {
+        id
+        title
+    }
+}

@@ -1,0 +1,8 @@
+query Globals($siteId: [QueryArgument]) {
+    navigation: entries(section: "navigation", siteId: $siteId) {
+        ... on navigation_navigation_Entry {
+            id
+            title
+        }
+    }
+}
