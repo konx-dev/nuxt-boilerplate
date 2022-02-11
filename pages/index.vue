@@ -1,7 +1,11 @@
 <template>
     <div>
-        <div>{{ entry.headingPlain }}</div>
-        <div v-for="(item, i) in navigation" :key="i">{{ item.title }}</div>
+        <div class="bg-black text-white">
+            {{ entry.headingPlain }}
+        </div>
+        <div v-for="(item, i) in navigation" :key="i">
+            {{ item.title }}
+        </div>
     </div>
 </template>
 
