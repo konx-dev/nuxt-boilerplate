@@ -25,14 +25,15 @@ jobs:
       with:
         node-version: 16.x
 
-    - name: Running clean install
+    - name: Running clean install & building nuxt
       run: npm ci
+      run: npm run build
       
     - name: Package Files
       run: |
         mkdir ../build
         cp -TR . ../build
-        tar -cvf deploy.tar ../build/
+        tar -cvf deploy.tar ../
 
     - name: Deploy files to server
       uses: appleboy/scp-action@master
