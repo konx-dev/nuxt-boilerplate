@@ -27,6 +27,8 @@ jobs:
 
     - name: Running clean install & building nuxt
       run: npm ci
+      
+    - name: Building Nuxt app..
       run: npm run build
       
     - name: Package Files
