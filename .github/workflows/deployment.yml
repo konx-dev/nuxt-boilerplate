@@ -31,11 +31,17 @@ jobs:
     - name: Building Nuxt app..
       run: npm run build
       
+    - name: Create .env file
+      run: |
+        touch .env
+        echo API_SECRET="this" >> .env
+        cat .env
+      
     - name: Package Files
       run: |
-        mkdir ../build
-        cp -TR . ../build
-        tar -cvf deploy.tar ../
+        mkdir ./
+        cp -TR . ./
+        tar -cvf deployment-files.tar ./
 
     - name: Deploy files to server
       uses: appleboy/scp-action@master
