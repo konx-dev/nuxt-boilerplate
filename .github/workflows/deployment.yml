@@ -39,9 +39,9 @@ jobs:
       
     - name: Package Files
       run: |
-        mkdir ./
-        cp -TR . ./
-        tar -cvf deployment-files.tar ./
+        mkdir ../
+        cp -TR . ../
+        tar -cvf deployment-files.tar ../
 
     - name: Deploy files to server
       uses: appleboy/scp-action@master
