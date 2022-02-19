@@ -28,16 +28,16 @@ jobs:
     - name: Running clean npm install
       run: npm ci
       
-    # - name: Building Nuxt app
-    #   run: npm run build
+    - name: Building Nuxt app
+      run: npm run build
       
-    # - name: Create .env file
-    #   run: |
-    #     touch .env
-    #     echo SERVER_PORT="${{ secrets.SERVER_PORT }}" >> .env
-    #     echo CMS_URL="${{ secrets.CMS_URL }}" >> .env
-    #     echo SITE_ID="${{ secrets.SITE_ID }}" >> .env
-    #     cat .env
+    - name: Create .env file
+      run: |
+        touch .env
+        echo SERVER_PORT="${{ secrets.SERVER_PORT }}" >> .env
+        echo CMS_URL="${{ secrets.CMS_URL }}" >> .env
+        echo SITE_ID="${{ secrets.SITE_ID }}" >> .env
+        cat .env
       
     # - name: Package Files
     #   run: |
