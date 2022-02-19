@@ -1,7 +1,7 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Deployment to DigitalOcean Droplet
+name: Production Deployment to remote host
 
 on:
   workflow_dispatch:
@@ -25,23 +25,25 @@ jobs:
       with:
         node-version: 16.x
 
-    - name: Running clean install & building nuxt
+    - name: Running clean npm install
       run: npm ci
       
-    - name: Building Nuxt app..
-      run: npm run build
+    # - name: Building Nuxt app
+    #   run: npm run build
       
-    - name: Create .env file
-      run: |
-        touch .env
-        echo API_SECRET="this" >> .env
-        cat .env
+    # - name: Create .env file
+    #   run: |
+    #     touch .env
+    #     echo SERVER_PORT="${{ secrets.SERVER_PORT }}" >> .env
+    #     echo CMS_URL="${{ secrets.CMS_URL }}" >> .env
+    #     echo SITE_ID="${{ secrets.SITE_ID }}" >> .env
+    #     cat .env
       
-    - name: Package Files
-      run: |
-        mkdir ../build
-        cp -TR . ../build
-        tar -cvf deploy.tar ../
+    # - name: Package Files
+    #   run: |
+    #     mkdir ../build
+    #     cp -TR . ../build
+    #     tar -cvf deploy.tar ../build/
 
     - name: Deploy files to server
       uses: appleboy/scp-action@master
@@ -50,5 +52,6 @@ jobs:
        username: ${{ secrets.REMOTE_USER }}
        key: ${{ secrets.SERVER_SSH_KEY }}
        rm: true
-       source: "deploy.tar"
+       source: "../"
+      #  source: "deploy.tar"
        target: "${{ secrets.REMOTE_TARGET }}"
