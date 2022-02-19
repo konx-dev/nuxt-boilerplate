@@ -52,7 +52,7 @@ jobs:
        username: ${{ secrets.REMOTE_USER }}
        key: ${{ secrets.SERVER_SSH_KEY }}
        rm: true
-       source: "nuxt-boilerplate/"
+       source: "/home/runner/work/nuxt-boilerplate/"
        strip_components: 1
       #  source: "deploy.tar"
        target: "${{ secrets.REMOTE_TARGET }}"
